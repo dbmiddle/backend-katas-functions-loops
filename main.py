@@ -12,7 +12,9 @@ def add(x, y):
 def multiply(x, y):
     """Multiply x with y. Handles negative values of x or y."""
     count = 0
-    for i in range(1, x):
+    if x < 0:
+        return -multiply(-x, y)
+    for i in range(x):
         count += add(0, y)
     return count
 
@@ -39,9 +41,13 @@ def fibonacci(n):
     x = [0, 1]
     for i in range(2, n+1):
         x.append(x[i - 2] + x[i - 1])
-    return x[-1]
+    return x[n - 1]
 
 
 if __name__ == '__main__':
-    add(3, 2)
-    pass
+    print(add(3, 2))
+    print(multiply(5, 4))
+    print(power(2, 3))
+    print(factorial(5))
+    print(fibonacci(8))
+
